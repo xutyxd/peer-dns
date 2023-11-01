@@ -1,7 +1,7 @@
 {
-  "name": "ts-hybrid-boilerplate",
+  "name": "peer-dns",
   "version": "1.0.0",
-  "description": "Another boilerplate for ts projects, especifically to ts npm packages",
+  "description": "Another socket server for signaling peers",
   "type": "module",
   "main": "cjs/index.js",
   "module": "mjs/index.js",

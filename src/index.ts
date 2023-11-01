@@ -2,12 +2,15 @@
 import { SocketServer } from './classes/socket-server.class';
 
 
-class App {
+class Server {
+    public server;
     constructor() {
-        const server = new SocketServer();
+        this.server = new SocketServer();
     }
 }
 
 
-new App();
+const server = new Server();
+
+export default { server };
 
