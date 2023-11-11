@@ -16,12 +16,16 @@ class Server {
 
         server.listen(3001);
 
-        setInterval(() => {
-            fetch('https://peer-dns.onrender.com')
-                .then((response) => response.text())
-                .then((value) => console.log('Is alive? ', value))
-                .catch((error) => console.log('Error: ', error));
-        }, 4000);
+        const HOST = process.env.HOST;
+
+        if (HOST) {
+            setInterval(() => {
+                fetch(HOST)
+                    .then((response) => response.text())
+                    .then((value) => console.log('Is alive? ', value))
+                    .catch((error) => console.log('Error: ', error));
+            }, 4000);
+        }
     }
 }
 
