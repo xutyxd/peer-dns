@@ -17,14 +17,16 @@ class Server {
         server.listen(3001);
 
         const HOST = process.env.HOST;
+        const INTERVAL = (parseInt(process.env.INTERVAL || '') || 0);
 
         if (HOST) {
+            const interval = INTERVAL || 10 * 60 * 1000; // 10 Minutes
             setInterval(() => {
                 fetch(HOST)
                     .then((response) => response.text())
                     .then((value) => console.log('Is alive? ', value))
                     .catch((error) => console.log('Error: ', error));
-            }, 4000);
+            }, interval);
         }
     }
 }

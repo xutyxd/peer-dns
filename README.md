@@ -12,6 +12,7 @@ Server that listen 4 events on sockets.
 ## Env vars
 
 - HOST: Variable to know the host of the server to perform a fetch to mantaine alive the server on free instances
+- INTERVAL: Variable to set the ellapsed time between fetch's. Default 600000 (10 minutes)
 
 ## Installation
 
