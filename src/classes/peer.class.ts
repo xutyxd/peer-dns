@@ -8,17 +8,17 @@ export class Peer {
     constructor(socket: Socket) {   
         this.id = socket.id;
 
-        socket.on('query', (room) => {
-            socket.join(room);
-            socket.to(room).emit('link', { id: socket.id });
+        socket.on('query', (domain) => {
+            socket.join(domain); 
+            socket.to(domain).emit('link', { id: socket.id, domain });
         });
 
-        socket.on('exit', (room) => {
-            socket.leave(room);
+        socket.on('exit', (domain) => {
+            socket.leave(domain);
         });
 
         const events = ['link', 'candidates'];
-
+ 
         events.forEach((event) => {
             socket.on(event, (data) => {
                 console.log('Emitting data: ', data);
